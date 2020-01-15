@@ -13,7 +13,8 @@ MAINTAINER ltl
 ENV JAVA_HOME="/usr/local/jdk-${JAVA_VERSION}" \
     PATH="${PATH}:${JAVA_HOME}/bin"
 #复制文件，设置工作目录
-COPY --from=0 /usr/src/mymaven/target/${jarName}.jar /app
+COPY --from=0 /usr/src/mymaven/target/${jarName}.jar /app/${jarName}.jar
+RUN cd /app && ls
 WORKDIR /app
 #测试
 RUN  /bin/echo 'root:123456' |chpasswd \
