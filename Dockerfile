@@ -11,7 +11,7 @@ ARG jarName=client1-0.0.1-SNAPSHOT
 MAINTAINER ltl
 #修改java home值，之前值错误，无-。
 ENV JAVA_HOME="/usr/local/jdk-${JAVA_VERSION}" \
-    PATH="${PATH}:${JAVA_HOME}/bin"
+    PATH="${PATH}:/usr/local/jdk-${JAVA_VERSION}/bin"
 #复制文件，设置工作目录
 COPY --from=0 /usr/src/mymaven/target/${jarName}.jar /app/${jarName}.jar
 RUN cd /app && ls
