@@ -21,7 +21,7 @@ RUN  /bin/echo 'root:123456' |chpasswd \
      && useradd ltl \
      && /bin/echo 'ltl:lkk' |chpasswd \
      && chmod -R a+w /app
-EXPOSE 8080 8081 9095
+EXPOSE 6713 8080 8081 9095
 #启动springbootTest；使用绝对路径指定配置文件、日志位置；WORKDIR指定工作目录
 ENTRYPOINT ["java","-jar","/app/client1-0.0.1-SNAPSHOT.jar","1>/app/log/log.log","2>/app/log/err.log","&"]
 
