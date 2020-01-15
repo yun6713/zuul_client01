@@ -2,7 +2,7 @@ FROM maven
 COPY . /usr/src/mymaven
 WORKDIR /usr/src/mymaven
 # 打包，删除原文件
-RUN mvn clean install -Dmaven.test.skip=true && \
+RUN mvn package && \
 	cd target && \
 	ls
 ENTRYPOINT ["/bin/bash", "ls"]
