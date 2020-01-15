@@ -33,6 +33,6 @@ public class LkkController {
 	@RequestMapping("/rrTest")
 	@ResponseBody
 	public String rrTest(HttpServletRequest hsr) {
-		return "hello world";
+		return "hello world,ltl";
 	}
 }
