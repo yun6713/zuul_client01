@@ -1,0 +1,10 @@
+server: 
+  port: 6713
+  address: 192.168.1.117
+#  servlet:
+#    context-path: /lkk1
+spring: 
+  security:
+    user:
+      name: ltl
+      password: lkk
