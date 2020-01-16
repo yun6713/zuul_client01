@@ -34,7 +34,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.fastjson.JSON;
-@Configuration
+//@Configuration
 public class CasConfig {
 	//单点登录会暴露此地址
 	@Value("http://${server.address:localhost}:${server.port:8080}")
