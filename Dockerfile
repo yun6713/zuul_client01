@@ -8,7 +8,7 @@ RUN mvn clean package -Dmaven.test.skip=true && \
 ENTRYPOINT ["/bin/bash", "ls"]
 FROM primetoninc/jdk
 # jar包名，不包含.jar后缀
-ARG jarName=client1-0.0.1-SNAPSHOT
+ENV jarName=client1-0.0.1-SNAPSHOT
 MAINTAINER ltl
 #修改java home值，之前值错误，无-。
 ENV JAVA_HOME="/usr/local/jdk-${JAVA_VERSION}" \
