@@ -6,6 +6,8 @@ RUN mvn clean package -Dmaven.test.skip=true && \
 	cd target && \
 	ls
 ENTRYPOINT ["/bin/bash", "ls"]
+
+
 FROM primetoninc/jdk
 # jar包名，不包含.jar后缀
 ENV jarName=client1-0.0.1-SNAPSHOT
@@ -15,8 +17,11 @@ ENV JAVA_HOME="/usr/local/jdk-${JAVA_VERSION}" \
     PATH="${PATH}:/usr/local/jdk-${JAVA_VERSION}/bin"
 #复制文件，设置工作目录
 COPY --from=0 /usr/src/mymaven/target/${jarName}.jar /app/${jarName}.jar
-RUN cd /app && ls
+RUN cd /app && \
+    ls && \
+    mkdir log
 WORKDIR /app
+VOLUME /app/log
 #测试
 RUN  /bin/echo 'root:123456' |chpasswd \
      && useradd ltl \
